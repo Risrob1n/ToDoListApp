@@ -1,0 +1,54 @@
+<div class="container">
+  <header>
+    <h1>TODO List</h1>
+    <div class="input-container">
+      <input
+        type="text"
+        placeholder="What needs to be done?"
+        [(ngModel)]="newTodoTitle"
+        (keyup.enter)="addTodo()"
+      />
+      <button (click)="addTodo()">Add</button>
+    </div>
+  </header>
+
+<main>
+  <ul>
+    <li *ngFor="let todo of todos" [class.completed]="todo.isCompleted">
+
+      <div *ngIf="editingTodo?.id !== todo.id; else editTemplate" class="todo-item">
+        <input
+          type="checkbox"
+          [checked]="todo.isCompleted"
+          (change)="toggleCompletion(todo)"
+        />
+        <span (dblclick)="startEdit(todo)" class="todo-title">
+          {{ todo.title }}
+        </span>
+        <button class="delete-btn" (click)="deleteTodo(todo.id)">×</button>
+      </div>
+
+      <ng-template #editTemplate>
+        <div class="edit-item">
+          <input
+            type="text"
+            [(ngModel)]="editingTodo!.title"
+            (keyup.enter)="saveEdit()"
+            (keyup.escape)="cancelEdit()"
+            class="edit-input"
+            autofocus
+          />
+          <div class="edit-buttons">
+            <button class="save-btn" (click)="saveEdit()">Save</button>
+            <button class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+          </div>
+        </div>
+      </ng-template>
+
+    </li>
+  </ul>
+  <div *ngIf="todos.length === 0" class="empty-state">
+    Your list is empty. Add a new item to get started!
+  </div>
+</main>
+</div>

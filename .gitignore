@@ -1,0 +1,69 @@
+# This .gitignore file is configured for a solution containing a .NET backend and an Angular frontend.
+
+# ####################### #
+# General / OS Specific #
+# ####################### #
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ######################## #
+# IDE and Editor Folders #
+# ######################## #
+.idea/
+.vscode/
+*.vspscc
+*.vssscc
+.vs/
+
+# ############# #
+# .NET Core #
+# ############# #
+# Compiled output and intermediate files
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Rr]elease/
+[Dd]ebug/
+[Ww]eb/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+Build/
+build/
+buildClient/
+
+# NuGet packages folder (for older project types)
+packages/
+*.nupkg
+
+# ####################### #
+# Node.js / Angular #
+# ####################### #
+# The entire node_modules directory is the most important to ignore
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Angular cache
+.angular/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Test reports
+coverage/
